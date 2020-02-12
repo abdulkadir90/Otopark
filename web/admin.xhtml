@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html">
+ <h:head>
+ <title>Admin Bilgileri Güncelleme</title>
+ <link rel="stylesheet" type="text/css" href="mystyle.css"/>
+ <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'/>
+<style>
+body {
+    font-family: 'Roboto';font-size: 18px;
+    background-image: url("parking-space.jpg");
+    background-repeat: no-repeat;
+}
+</style>
+  </h:head>
+ <h:body>
+ <h2>Admin Bilgileri Güncelleme</h2>
+ <h:form>
+ <h:panelGrid columns="2" border = "1"
+      cellpadding = "8" cellspacing = "5" bgcolor = "#f0f0f0">
+     
+<h:outputText value="Yeni Kullanıcı Adı"/>
+ <h:inputText id="id" required="true"
+ requiredMessage="Yeni kullanıcı adınızı giriniz"
+ value="#{adminBean.id}" />
+ 
+  <h:outputText value="Eski Şifre"/>
+    <h:inputText id="eskipw" required="true"
+    requiredMessage="eski sifreyi giriniz"
+    value="#{adminBean.eskipw}" />
+    
+     <h:outputText value="Yeni şifrenizi giriniz"/>
+    <h:inputText id="yenipw" required="true"
+    requiredMessage="yeni sifreyi giriniz"
+    value="#{adminBean.yenipw}" />
+    
+     <h:outputText value="Yeni şifrenizi tekrar giriniz"/>
+    <h:inputText id="kontrolpw" required="true"
+    requiredMessage="yeni sifreyi tekrar giriniz"
+    value="#{adminBean.kontrolpw}" />
+    
+    <h:outputText value="Güvenlik sorusunu belirleyiniz"/>
+    <h:inputText id="guvenliksorusu1" required="true"
+    requiredMessage="güvenlik sorusunu giriniz:"
+    value="#{adminBean.guvenliksorusu}" />
+    
+    <h:outputText value="Güvenlik sorusunun cevabını belirleyiniz"/>
+    <h:inputText id="guvenlikyaniti1" required="true"
+    requiredMessage=" güvenlik sorusunun cevabını giriniz:"
+    value="#{adminBean.guvenlikyaniti}" />
+    
+    
+    <h:outputLink value="index.xhtml">Ana Sayfa</h:outputLink>
+    <h:commandButton value="Güncelle"
+                  action="#{adminBean.adminEkle()}"/>
+
+ </h:panelGrid>
+ </h:form>
+ </h:body>
+ </html>

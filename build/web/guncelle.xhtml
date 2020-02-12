@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html">
+ <h:head>
+ <title>Şifremi Unuttum</title>
+ <link rel="stylesheet" type="text/css" href="mystyle.css"/>
+ <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'/>
+ <style>
+     body {
+  font-family: 'Roboto';font-size: 18px;
+  
+}
+ </style>
+ </h:head>
+ <h:body>
+ <h3>Belirlemiş olduğunuz güvenlik sorusunu cevaplayınız</h3>
+ <h:form>
+ <h:panelGrid columns="2" border = "1" bgcolor = "#f0f0f0">
+     
+
+ 
+ <h:dataTable value="#{adminBean.sorubul()}" var="myvariable" border="1" cellpadding="10" cellspacing="10"> 
+
+<h:column>
+
+#{myvariable.guvenliksoru}
+</h:column>
+ </h:dataTable>
+ <h:inputText id="cevap" required="true"
+ requiredMessage="Bu alan boş bırakılamaz"
+ value="#{adminBean.gcevap}" /> 
+ 
+<h:outputLink value="index.xhtml">Ana Sayfa</h:outputLink>
+
+ <h:commandButton value="Cevapla"
+                  action="#{adminBean.kontrol()}"/>
+ 
+ </h:panelGrid>
+ </h:form>
+ </h:body>
+ </html>
+

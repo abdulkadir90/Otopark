@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html">
+ <h:head>
+ <title>Sen senmişsin demek</title>
+ <link rel="stylesheet" type="text/css" href="mystyle.css"/>
+ <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'/>
+ <style>
+    body {
+  font-family: 'Roboto';font-size: 18px;  
+}
+   
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3CBC8D;
+  color: white;
+}
+
+body {
+  font-family: 'Roboto';font-size: 22px;
+  background-image: url("parking-space.jpg");
+  background-repeat: no-repeat;
+    
+}
+
+</style>
+ 
+  </h:head>
+ <h:body>
+ <h2>Tebrikler artık şifreni değiştirebilirsin</h2>
+ <h:form>
+ <h:panelGrid columns="2" border = "1"
+      cellpadding = "8" cellspacing = "5" bgcolor = "#f0f0f0">
+     
+<h:outputText value="Yeni Şifre"/>
+ <h:inputText id="yenipw" required="true"
+ requiredMessage="Bu alan boş bırakılamaz"
+ value="#{adminBean.yenipw}" />
+ 
+  <h:outputText value="Yeni Şifre Tekrar"/>
+    <h:inputText id="kontrolpw" required="true"
+    requiredMessage="Bu alan boş bırakılamaz"
+    value="#{adminBean.kontrolpw}" />
+  <h:commandButton value="Onay"
+                  action="#{adminBean.sifreyenileme()}"/>
+ 
+ 
+<h:outputLink value="index.xhtml">Ana Sayfa</h:outputLink>
+ </h:panelGrid>
+ </h:form>
+ </h:body>
+ </html>

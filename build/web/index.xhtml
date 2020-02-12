@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+ <h:head>
+ <title>parkistan Homepage</title>
+ <link rel="stylesheet" type="text/css" href="mystyle.css"/>
+ <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'/>
+ <style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.header {
+  background-image: url("banner.jpg");;
+  padding: 170px;
+  text-align: center;
+}
+body{
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+</style>
+ 
+  </h:head>
+ <h:body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    <div class="header">
+</div>
+    
+<div class="navbar">
+    <ul>
+        <li><a class="active" href="index.xhtml"><i class="fa fa-fw fa-home"></i> Anasayfa</a></li>         
+        <li><a href="kayit.xhtml"><i class="fa fa-fw fa-car"></i> Araç Giriş Kaydı</a> </li>
+        <li><a href="musteri.xhtml"><i class="fa fa-fw fa-user"></i> Müşteri Kaydı</a> </li>
+        <li><a href="iletisim.xhtml"><i class="fa fa-fw fa-envelope"></i> İletişim</a> </li>
+        <li style="float:right" ><a href="admin.xhtml"><i class="fa fa-fw fa-user"></i> Yönetici Paneli</a> </li>
+    </ul>
+</div>
+    
+    <div>
+        <h2>Otoparktaki Araçlar</h2>
+        <h:panelGrid style="text-align: center" columns="2" border = "1" bgcolor = "#f0f0f0" >
+<h:dataTable value="#{databaseBean.bul()}" var="myvariable" border="1" cellpadding="5" cellspacing="1"> 
+
+<h:column>
+<f:facet name="header">Plaka</f:facet>
+#{myvariable.plaka}
+</h:column>
+  
+ <h:column>
+ <f:facet name="header">Renk</f:facet>
+ #{myvariable.renk}
+ </h:column>
+  
+ <h:column>
+ <f:facet name="header">Marka</f:facet>
+ #{myvariable.marka}
+ </h:column>
+  
+  <h:column>
+ <f:facet name="header">Yakıt Tipi</f:facet>
+ #{myvariable.yakit}
+ </h:column>
+  
+ <h:column>
+ <f:facet name="header">Süre(Saat)</f:facet>
+ #{myvariable.süre}
+ </h:column>
+    
+      <h:column>
+          <h:form>
+              <h:commandButton  value="Bu aracın çıkışını yap" action="#{databaseBean.cıkıs()}">
+                  <f:setPropertyActionListener target="#{databaseBean.cıkacak_plaka}" value="#{myvariable.plaka}" />
+                  <f:setPropertyActionListener target="#{databaseBean.time}" value="#{myvariable.süre}" />
+                  <f:setPropertyActionListener target="#{databaseBean.yakit}" value="#{myvariable.yakit}" />
+              </h:commandButton>
+           </h:form>
+      </h:column>
+               
+ </h:dataTable>
+        </h:panelGrid>
+ </div>
+    <br></br>    
+    <div>
+        <h2>Kayıtlı Müşteriler</h2>
+    <h:panelGrid columns="2" border = "1" bgcolor = "#f0f0f0" >
+<h:dataTable value="#{databaseBean.musteriBul()}" var="myvariable" border="1" cellpadding="5" cellspacing="1"> 
+
+<h:column>
+<f:facet name="header">Ad</f:facet>
+#{myvariable.ad}
+</h:column>
+  
+ <h:column>
+ <f:facet name="header">Soyad</f:facet>
+ #{myvariable.soyad}
+ </h:column>
+  
+ <h:column>
+ <f:facet name="header">Doğum Yılı</f:facet>
+ #{myvariable.dogumyili}
+ </h:column>
+  
+  <h:column>
+ <f:facet name="header">Cinsiyet</f:facet>
+ #{myvariable.cinsiyet}
+ </h:column>
+  
+ <h:column>
+ <f:facet name="header">Üzerine kayıtlı plaka</f:facet>
+ #{myvariable.plaka}
+ </h:column>
+</h:dataTable>
+    </h:panelGrid>
+    </div>
+    
+   
+ </h:body>
+ </html>

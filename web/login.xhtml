@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+	<title>Login</title>
+        <link rel="stylesheet" type="text/css" href="mystyle.css"/>
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'/> 
+<style>
+body {
+    font-family: 'Roboto';font-size: 18px;
+    
+}
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+
+button:hover {
+  background-color: #3CBC8D;
+  color: white;
+}
+
+body {
+  font-family: 'Roboto';font-size: 22px;
+  background-image: url("parking-space.jpg");
+  background-repeat: no-repeat;
+    
+}
+
+
+</style>
+</h:head>
+<h:body><h2>Admin Giriş Paneli</h2>
+	<h:form>
+            <h:panelGrid columns="2" border = "1" bgcolor = "#f0f0f0" >
+		
+		<h:outputText value="Kullanıcı Adı" />
+		<h:inputText id="username" value="#{loginBean.username}"></h:inputText>		
+		
+		<h:outputText value="Şifre" />
+		<h:inputSecret id="password" value="#{loginBean.password}"></h:inputSecret>
+                
+                <h:outputLink value="guncelle.xhtml">Şifremi Unuttum</h:outputLink>		
+		<h:commandButton action="#{loginBean.validateLogin}" value="Giriş"></h:commandButton>
+                
+                </h:panelGrid>
+	</h:form>
+</h:body>
+</html>
